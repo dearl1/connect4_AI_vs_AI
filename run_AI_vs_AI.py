@@ -5,13 +5,13 @@ import file_init_bia_wei__feedforward
 import network
 
 # randomly initialise biases and weights twice
-sizes = [42, 20, 7]
+sizes = [42, 50, 20, 7]
 (biases_1, weights_1) = file_init_bia_wei__feedforward.func_randomly_init_bia_wei(sizes)
 (biases_2, weights_2) = file_init_bia_wei__feedforward.func_randomly_init_bia_wei(sizes)
 
 
 # do: ( 'AI_1 play AI_2', 'train AI_1 and AI_2' ) multiple times
-for i in range(20):
+for i in range(10):
     # play the first AI against the other AI as many times as is needed to have a winning result
         # do this multiple times to make a big array called big_training_data
     number_of_games = 10
@@ -28,9 +28,10 @@ for i in range(20):
 
     # train these nets using the training_data (from a single game) (made above)
     # return what the new, tuned biases and weights are for each of the nets
-    pass_to_SGD = (big_training_data, "big", 10, 10, 3.0)
+    pass_to_SGD = (big_training_data, "big", 300, 10, 3.0)
     (biases_1, weights_1) = net_1.SGD(pass_to_SGD)
-    # the arguments that are passed are: the data to train on,
+    # the arguments that are passed are:
+        # the data to train on
         # whether the training data is big or small - which determines if it needs
             # to be split into mini batches
         # number of epochs to train through
