@@ -5,7 +5,7 @@ def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, 
     import file_is_column_full
     is_column_full = file_is_column_full.func_is_column_full(counter, what_button)
 
-    print("\n is_column_full: ", is_column_full)
+##    print("\n is_column_full: ", is_column_full)
 
     # Only add a counter to the column if the column is not already full
     if is_column_full == "no":
@@ -26,7 +26,7 @@ def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, 
         import file_add_counter
         counter = file_add_counter.func_add_counter(counter, what_button, whose_turn)
 
-        print("\n counter ...\n", counter)
+##        print("\n counter ...\n", counter)
 
         # save the choice
         choice = what_button
