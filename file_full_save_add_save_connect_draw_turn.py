@@ -28,7 +28,7 @@ def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, 
         import file_add_counter
         counter = file_add_counter.func_add_counter(counter, what_button, whose_turn)
 
-        print("\n counter ...\n", counter)
+##        print("\n counter ...\n", counter)
 
         # save the choice
         choice = what_button
@@ -49,33 +49,33 @@ def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, 
             store_n_times = 3
             
             training_data = file_reformat_data.func_reformat_data(training_data, store_counter_1, store_choice_1, winner, store_n_times)
-            print("\n   Player 1 won")
-            print("\n training_data ...\n", training_data)
+##            print("\n   Player 1 won")
+##            print("\n training_data ...\n", training_data)
 
             if store_choice_1[-1] != store_choice_2[-1]:
                 # save the move that the other player should have done in hindsight
                 store_n_times = 1
                 training_data = file_reformat_data.func_reformat_data(training_data, store_counter_2, store_choice_1, 2, store_n_times)
-                print("\n   Added hindsight to training_data...")
-                print("\n training_data ...\n", training_data)
-            else:
-                print("\n   Did not add hindsight to training_data")
+##                print("\n   Added hindsight to training_data...")
+##                print("\n training_data ...\n", training_data)
+##            else:
+##                print("\n   Did not add hindsight to training_data")
 
         if winner == 2:
             store_n_times = 3
             
             training_data = file_reformat_data.func_reformat_data(training_data, store_counter_2, store_choice_2, winner, store_n_times)
-            print("\n   Player 2 won")
-            print("\n training_data ...\n", training_data)
+##            print("\n   Player 2 won")
+##            print("\n training_data ...\n", training_data)
 
             if store_choice_1[-1] != store_choice_2[-1]:
                 # save the move that the other player should have done in hindsight
                 store_n_times = 1
                 training_data = file_reformat_data.func_reformat_data(training_data, store_counter_1, store_choice_2, 1, store_n_times)
-                print("\n   Added hindsight to training_data...")
-                print("\n training_data ...\n", training_data)
-            else:
-                print("\n   Did not add hindsight to training_data")
+##                print("\n   Added hindsight to training_data...")
+##                print("\n training_data ...\n", training_data)
+##            else:
+##                print("\n   Did not add hindsight to training_data")
 
 
         if winner == 1 or winner == 2:

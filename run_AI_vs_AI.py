@@ -5,7 +5,8 @@ import file_init_bia_wei__feedforward
 import network
 
 # randomly initialise biases and weights twice
-sizes = [42, 50, 20, 7]
+##sizes = [42, 50, 20, 7]
+sizes = [42, 20, 7]
 (biases_1, weights_1) = file_init_bia_wei__feedforward.func_randomly_init_bia_wei(sizes)
 (biases_2, weights_2) = file_init_bia_wei__feedforward.func_randomly_init_bia_wei(sizes)
 
@@ -17,7 +18,7 @@ for i in range(10):
     number_of_games = 10
     big_training_data = make_big_training_data.func_make_big_training_data(number_of_games, biases_1, weights_1, biases_2, weights_2)
     
-##    print("\n   Finished making training data")
+    print("\n   Finished making training data")
 
 
     # train both AIs using their current biases and weights
@@ -45,9 +46,10 @@ for i in range(10):
     ##print("\n weights_1 ...\n", weights_1)
     ##print("\n biases_2 ...\n", biases_2)
     ##print("\n weights_2 ...\n", weights_2)
-##    print("\n   Finished training both nets. Biases and weights of both nets have been tuned.")
+    print("\n   Finished training both nets. Biases and weights of both nets have been tuned.")
 
     print("Cycle {} of ( 'make training data', 'train nets' ) complete".format(i))
+    print()
 
 
 # use biases_1 and weights_1 in a pygame against a human
