@@ -11,7 +11,8 @@ sizes = [42, 20, 7]
 import make_training_data_from_AI_vs_AI
 training_data = make_training_data_from_AI_vs_AI.func_make_training_data(biases_1, weights_1, biases_2, weights_2)
 
-print("\n training_data ...\n", training_data)
+##print("\n training_data ...\n", training_data)
+print("\n   Finished making training data")
 
 
 # train both AIs using their current biases and weights
@@ -34,7 +35,30 @@ pass_to_SGD = (training_data, "small", 10, 10, 3.0)
 # similarly we need to train net_2
 (biases_2, weights_2) = net_2.SGD(pass_to_SGD)
 
-print("\n biases_1 ...\n", biases_1)
-print("\n weights_1 ...\n", weights_1)
-print("\n biases_2 ...\n", biases_2)
-print("\n weights_2 ...\n", weights_2)
+##print("\n biases_1 ...\n", biases_1)
+##print("\n weights_1 ...\n", weights_1)
+##print("\n biases_2 ...\n", biases_2)
+##print("\n weights_2 ...\n", weights_2)
+print("\n   Finished training both nets. Biases and weights of both nets have been tuned.")
+
+
+# use biases_1 and weights_1 in a pygame against a human
+import file_connect4_human_vs_trained_AI
+file_connect4_human_vs_trained_AI.func_connect4_human_vs_trained_AI(biases_1, weights_1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
