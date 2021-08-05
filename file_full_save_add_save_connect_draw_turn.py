@@ -1,5 +1,7 @@
 
-def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, winner, game_status, store_counter_1, store_counter_2, store_choice_1, store_choice_2):
+import file_reformat_data
+
+def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, winner, game_status, store_counter_1, store_counter_2, store_choice_1, store_choice_2, training_data):
 
     # Check if the column which the user has chosen is already full
     import file_is_column_full
@@ -41,11 +43,47 @@ def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, 
         import file_check_connect_4
         winner = file_check_connect_4.func_main(counter, whose_turn)
 
+
+        # if there is a win: save the last 3 moves of this winner to training_data
+        if winner == 1:
+            store_n_times = 3
+            
+            training_data = file_reformat_data.func_reformat_data(training_data, store_counter_1, store_choice_1, winner, store_n_times)
+            print("\n   Player 1 won")
+            print("\n training_data ...\n", training_data)
+
+            if [store_choice_1[-1]].index(1) != [store_choice_2[-1]].index(1):
+                # save the move that the other player should have done in hindsight
+                store_n_times = 1
+                training_data = file_reformat_data.func_reformat_data(training_data, store_counter_2, store_choice_1, 2, store_n_times)
+                print("\n   Added hindsight to training_data...")
+                print("\n training_data ...\n", training_data)
+            else:
+                print("\n   Did not add hindsight to training_data")
+
+        if winner == 2:
+            store_n_times = 3
+            
+            training_data = file_reformat_data.func_reformat_data(training_data, store_counter_2, store_choice_2, winner, store_n_times)
+            print("\n   Player 2 won")
+            print("\n training_data ...\n", training_data)
+
+            if [store_choice_1[-1]].index(1) != [store_choice_2[-1]].index(1):
+                # save the move that the other player should have done in hindsight
+                store_n_times = 1
+                training_data = file_reformat_data.func_reformat_data(training_data, store_counter_1, store_choice_2, 1, store_n_times)
+                print("\n   Added hindsight to training_data...")
+                print("\n training_data ...\n", training_data)
+            else:
+                print("\n   Did not add hindsight to training_data")
+
+
         if winner == 1 or winner == 2:
 ##            print("\n\n   The winner is player {}".format(winner))
             game_status = "stopped"
 
-            return (counter, whose_turn, winner, game_status, is_column_full) # if there is a winner then immediately exit
+            return (counter, whose_turn, winner, game_status, is_column_full, store_counter_1, store_counter_2, store_choice_1, store_choice_2, training_data)
+                # if there is a winner then immediately exit
                 # this func_full_add_connect_draw_turn function so that
                 # the section of code below doesn't run and make game_status change from being "stopped" to being something else
 
@@ -65,7 +103,7 @@ def func_full_save_add_save_connect_draw_turn(counter, what_button, whose_turn, 
             whose_turn = 1
 
 
-    return (counter, whose_turn, winner, game_status, is_column_full)
+    return (counter, whose_turn, winner, game_status, is_column_full, store_counter_1, store_counter_2, store_choice_1, store_choice_2, training_data)
 
 
                 
