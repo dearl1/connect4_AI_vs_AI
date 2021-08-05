@@ -1,6 +1,6 @@
 
 # import files
-import make_training_data_from_AI_vs_AI
+import make_big_training_data
 import file_init_bia_wei__feedforward
 import network
 
@@ -11,13 +11,13 @@ sizes = [42, 20, 7]
 
 
 # do: ( 'AI_1 play AI_2', 'train AI_1 and AI_2' ) multiple times
-for i in range(10):
+for i in range(20):
     # play the first AI against the other AI as many times as is needed to have a winning result
-    # return the training_data of this game
-    training_data = make_training_data_from_AI_vs_AI.func_make_training_data(biases_1, weights_1, biases_2, weights_2)
-
-    ##print("\n training_data ...\n", training_data)
-    print("\n   Finished making training data")
+        # do this multiple times to make a big array called big_training_data
+    number_of_games = 10
+    big_training_data = make_big_training_data.func_make_big_training_data(number_of_games, biases_1, weights_1, biases_2, weights_2)
+    
+##    print("\n   Finished making training data")
 
 
     # train both AIs using their current biases and weights
@@ -28,13 +28,13 @@ for i in range(10):
 
     # train these nets using the training_data (from a single game) (made above)
     # return what the new, tuned biases and weights are for each of the nets
-    pass_to_SGD = (training_data, "small", 10, 10, 3.0)
+    pass_to_SGD = (big_training_data, "big", 10, 10, 3.0)
     (biases_1, weights_1) = net_1.SGD(pass_to_SGD)
     # the arguments that are passed are: the data to train on,
         # whether the training data is big or small - which determines if it needs
             # to be split into mini batches
         # number of epochs to train through
-        # mini_batch_size - which isn't actually used if traning_data_size == "small"
+        # mini_batch_size - which isn't actually used if training_data_size == "small"
         # eta
 
     # similarly we need to train net_2
@@ -44,7 +44,9 @@ for i in range(10):
     ##print("\n weights_1 ...\n", weights_1)
     ##print("\n biases_2 ...\n", biases_2)
     ##print("\n weights_2 ...\n", weights_2)
-    print("\n   Finished training both nets. Biases and weights of both nets have been tuned.")
+##    print("\n   Finished training both nets. Biases and weights of both nets have been tuned.")
+
+    print("Cycle {} of ( 'make training data', 'train nets' ) complete".format(i))
 
 
 # use biases_1 and weights_1 in a pygame against a human
