@@ -19,9 +19,9 @@ def func_AI_turn(game_status, whose_turn, counter, biases, weights, winner, stor
     while sum(AI_choice_list) > 0:
 
         import file_full_save_add_save_connect_draw_turn
-        (counter, whose_turn, winner, game_status, is_column_full) =
-        file_full_save_add_save_connect_draw_turn.func_full_save_add_save_connect_draw_turn
-        (counter, AI_choice, whose_turn, winner, game_status, store_counter_1, store_counter_2, store_choice_1, store_choice_2, training_data)
+        (counter, whose_turn, winner, game_status, is_column_full, store_counter_1, store_counter_2, store_choice_1, store_choice_2, training_data) = \
+        file_full_save_add_save_connect_draw_turn.func_full_save_add_save_connect_draw_turn(
+            counter, AI_choice, whose_turn, winner, game_status, store_counter_1, store_counter_2, store_choice_1, store_choice_2, training_data)
  
         if is_column_full == "yes":
 

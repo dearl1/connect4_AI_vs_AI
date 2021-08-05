@@ -17,7 +17,7 @@ def func_make_training_data(biases_1, weights_1, biases_2, weights_2):
     while len(training_data) == 0:
 
         counter = np.zeros((6, 7))
-        ##print("\n counter ...\n", counter)
+        print("\n counter ...\n", counter)
 
         whose_turn = 1
 
