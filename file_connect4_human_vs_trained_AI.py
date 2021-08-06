@@ -36,7 +36,7 @@ def func_connect4_human_vs_trained_AI(biases, weights):
     dark_grey = (100,100,100)
 
 
-    whose_turn = 1
+    whose_turn = 2
     winner = 0
 
     import file_full_add_connect_draw_turn
