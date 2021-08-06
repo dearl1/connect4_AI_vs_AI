@@ -12,6 +12,9 @@ def func_make_big_training_data(number_of_games, biases_1, weights_1, biases_2, 
         for instance in training_data_1game:
             big_training_data.append(instance)
 
+        if game%(number_of_games//10) == 0:
+            print("Game {} completed. {} games will be played to make big_training_data array.".format(game, number_of_games))
+
     return big_training_data
 
 ##print()
