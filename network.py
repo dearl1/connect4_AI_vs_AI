@@ -84,7 +84,7 @@ class Network(object):
                 for mini_batch in mini_batches:
                     self.update_mini_batch(mini_batch, eta)
 
-                if j%100 == 0:
+                if j%10 == 0:
                     print("Epoch {} complete".format(j))
 
         elif training_data_size == "small":
