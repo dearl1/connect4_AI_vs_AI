@@ -12,10 +12,10 @@ sizes = [42, 50, 20, 7]
 
 
 # do: ( 'AI_1 play AI_2', 'train AI_1 and AI_2' ) multiple times
-for i in range(10):
+for i in range(2):
     # play the first AI against the other AI as many times as is needed to have a winning result
         # do this multiple times to make a big array called big_training_data
-    number_of_games = 100
+    number_of_games = 500
     big_training_data = make_big_training_data.func_make_big_training_data(number_of_games, biases_1, weights_1, biases_2, weights_2)
     
     print("\n   Finished making training data")
