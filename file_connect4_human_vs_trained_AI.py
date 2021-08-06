@@ -91,7 +91,8 @@ def func_connect4_human_vs_trained_AI(biases, weights):
         if game_status == "running" and whose_turn == 2:
 
             import file_counter_to_a
-            # reshape counter to (42, 1), make all the elements that are 2 be 0.5 instead
+            # reshape counter to (42, 1)
+            # make all the elements in 'a' be: 0, 0.5, 1 for: self (player 2), empty, other color (player 1)
             a = file_counter_to_a.func_counter_to_a(counter)
             print("\n a ...\n", a)
             

@@ -1,7 +1,7 @@
 
 import numpy as np
 
-def func_reformat_data(training_data, store_counter, store_choice, perspective, store_n_times):
+def func_reformat_data(training_data, store_counter, store_choice, perspective, store_n_times, storage_type = None):
 
     # each instance of test data is 42 element vector of 0, 1 or 2...
     # and next to that is a 7 element vector which is all 0 except a 1 where the choice was made
@@ -43,7 +43,14 @@ def func_reformat_data(training_data, store_counter, store_choice, perspective, 
                     
 
         # put a 1 in the correct place in the 7 element vector at the current i instance in training_data
-        training_data[i][1][ store_choice[len(store_counter) - go_through_n_times + count] ] = 1
+        if storage_type == None:
+            training_data[i][1][ store_choice[len(store_counter) - go_through_n_times + count] ] = 1
+        elif storage_type == "bad move":
+            # put 0.5 everywhere except a 0 where the bad move was
+            for temp_i in range(7):
+                training_data[i][1][temp_i] = 0.5
+                
+            training_data[i][1][ store_choice[len(store_counter) - go_through_n_times + count] ] = 0
 
 
     return training_data
