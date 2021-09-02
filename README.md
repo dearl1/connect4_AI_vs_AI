@@ -1,1 +1,1 @@
-# connect4_AI_vs_AI
+# connect4 with an AI
