@@ -1,0 +1,9 @@
+On 2021_9_3 12.08:
+
+This command:
+grep "bia_wei.pickle" file_AI_turn.py file_connect4_human_vs_trained_AI.py
+returned nothing
+
+Also, this command:
+grep "bia_wei.pickle" make_big_training_data.py make_training_data_from_AI_vs_AI.py run_AI_vs_AI.py
+returned nothing
