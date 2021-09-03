@@ -1,5 +1,7 @@
 # connect4 with an AI
 
+network.py is code that was copied from https://github.com/MichalDanielDobrzanski/DeepLearningPython and altered to suit my requirements.
+
 Run connect4_as_a_game.py to play as a human vs another human (or play yourself!).  
 
 Any .py file which says file_ at the start is a function which is used by a main script.
